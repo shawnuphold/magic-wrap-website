@@ -101,9 +101,8 @@ export default function Contact() {
                   <div className="flex items-start gap-3">
                     <Clock className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div className="text-muted-foreground">
-                      <p>Monday - Friday: 8am - 6pm</p>
-                      <p>Saturday: 9am - 2pm</p>
-                      <p>Sunday: Closed</p>
+                      <p>Monday - Friday: 9am - 5pm</p>
+                      <p>Saturday - Sunday: Closed</p>
                     </div>
                   </div>
                 </CardContent>
