@@ -87,8 +87,8 @@ export default function Contact() {
                     <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="text-muted-foreground">
-                        123 Main Street<br />
-                        Your City, State 12345
+                        1063 Greenbag Rd Ste E<br />
+                        Morgantown, WV 26508
                       </p>
                     </div>
                   </div>
