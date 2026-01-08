@@ -87,32 +87,62 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background Image with Dark Overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{ backgroundImage: `url(${heroBg})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/30" />
-        </div>
-        <div className="container mx-auto px-4 py-16 md:py-24 relative">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-              Wraps, Graphics & Signs<br />
-              <span className="text-primary">That Get You Noticed</span>
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground/95 via-foreground/80 to-foreground/60" />
+        
+        {/* Accent Glow */}
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
+          <div className="max-w-4xl">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-primary mb-8 animate-fade-in">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-sm font-medium tracking-wide uppercase">Morgantown's Premier Wrap & Sign Shop</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-background leading-[1.1] animate-fade-in" style={{ animationDelay: "0.1s" }}>
+              Wraps & Signs<br />
+              <span className="text-primary">That Demand Attention</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              Vehicle wraps, fleet branding, wall graphics, decals, and professional signage—designed, printed, and installed with precision.
+            
+            <p className="text-lg md:text-xl text-background/70 mb-10 max-w-2xl leading-relaxed animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              Professional vehicle wraps, fleet branding, wall graphics, and custom signage. 
+              Precision-crafted to make your brand unforgettable.
             </p>
-            <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <Button asChild size="lg" className="font-semibold text-base px-8">
+            
+            <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+              <Button asChild size="lg" className="font-semibold text-base px-8 h-14 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all">
                 <Link to="/contact">
-                  Request a Quote
+                  Get Your Free Quote
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="font-semibold text-base px-8 bg-background/50 backdrop-blur-sm">
+              <Button asChild variant="outline" size="lg" className="font-semibold text-base px-8 h-14 border-background/30 text-background hover:bg-background/10 hover:text-background backdrop-blur-sm">
                 <Link to="/gallery">View Our Work</Link>
               </Button>
+            </div>
+            
+            {/* Stats Bar */}
+            <div className="flex flex-wrap gap-8 md:gap-12 mt-16 pt-8 border-t border-background/10 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-primary">500+</div>
+                <div className="text-sm text-background/60 mt-1">Vehicles Wrapped</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
+                <div className="text-sm text-background/60 mt-1">Satisfaction Rate</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-primary">10+</div>
+                <div className="text-sm text-background/60 mt-1">Years Experience</div>
+              </div>
             </div>
           </div>
         </div>
