@@ -57,7 +57,7 @@ const projects: Project[] = [
   { id: 10, title: "Wayside Furniture Box Truck", category: "Fleet Branding", tags: ["Box Truck", "Commercial", "Full Wrap"], image: boxTruckWrap1 },
   
   // Real work - Window Graphics
-  { id: 11, title: "Navigator Window Tint", category: "Window Graphics", tags: ["Window Tint", "SUV", "Premium"], image: windowTint1 },
+  { id: 11, title: "Navigator Roof & Mirror Wrap", category: "Vehicle Wraps", tags: ["Partial Wrap", "SUV", "Accents"], image: windowTint1 },
   { id: 12, title: "Carbon Fiber Pillar Accents", category: "Window Graphics", tags: ["Window Tint", "Carbon Fiber", "SUV"], image: windowTint2 },
   
   // Coming soon placeholders
