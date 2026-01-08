@@ -45,10 +45,10 @@ export default function Contact() {
                       <div>
                         <p className="font-medium">Phone</p>
                         <a 
-                          href="tel:+15551234567" 
+                          href="tel:+13042443030,2" 
                           className="text-muted-foreground hover:text-primary transition-colors"
                         >
-                          (555) 123-4567
+                          (304) 244-3030 ext. 2
                         </a>
                       </div>
                     </li>
@@ -57,10 +57,10 @@ export default function Contact() {
                       <div>
                         <p className="font-medium">Text</p>
                         <a 
-                          href="sms:+15551234567" 
+                          href="sms:+13042443030" 
                           className="text-muted-foreground hover:text-primary transition-colors"
                         >
-                          (555) 123-4567
+                          (304) 244-3030
                         </a>
                       </div>
                     </li>
@@ -118,13 +118,13 @@ export default function Contact() {
                   </p>
                   <div className="mt-4 flex gap-3">
                     <a
-                      href="tel:+15551234567"
+                      href="tel:+13042443030,2"
                       className="flex-1 text-center py-2 px-4 rounded-md bg-background text-foreground font-medium hover:bg-background/90 transition-colors"
                     >
                       Call Now
                     </a>
                     <a
-                      href="sms:+15551234567"
+                      href="sms:+13042443030"
                       className="flex-1 text-center py-2 px-4 rounded-md bg-primary-foreground/20 text-primary-foreground font-medium hover:bg-primary-foreground/30 transition-colors"
                     >
                       Text Us
