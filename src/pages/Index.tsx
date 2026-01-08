@@ -189,27 +189,29 @@ export default function Index() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Do</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">What We Do</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               From vehicle wraps to storefront signs, we offer a complete range of graphics and signage services.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <service.icon className="w-10 h-10 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold mb-2">{service.name}</h3>
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-card">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <service.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{service.name}</h3>
                   <p className="text-sm text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Button asChild variant="outline" size="lg">
+          <div className="text-center mt-12">
+            <Button asChild variant="outline" size="lg" className="font-semibold border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all">
               <Link to="/services">
                 View All Services
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -220,15 +222,16 @@ export default function Index() {
       </section>
 
       {/* Signs Scroller */}
-      <section className="py-12 bg-foreground text-background overflow-hidden">
-        <div className="container mx-auto px-4 mb-6">
-          <h3 className="text-xl font-semibold text-center">Signs We Build</h3>
+      <section className="py-16 bg-foreground text-background overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
+        <div className="container mx-auto px-4 mb-8 relative">
+          <h3 className="text-2xl font-bold text-center">Signs We Build</h3>
         </div>
-        <div className="flex gap-8 animate-scroll">
+        <div className="flex gap-8 animate-scroll relative">
           {[...signTypes, ...signTypes].map((sign, index) => (
             <span
               key={index}
-              className="flex-shrink-0 px-6 py-2 rounded-full border border-background/20 text-sm font-medium whitespace-nowrap"
+              className="flex-shrink-0 px-6 py-3 rounded-full border border-primary/30 bg-primary/10 text-sm font-medium whitespace-nowrap text-background"
             >
               {sign}
             </span>
@@ -246,23 +249,25 @@ export default function Index() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Our Process</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               From concept to completion, we make it simple and stress-free.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
               <div key={index} className="relative text-center group">
-                <div className="text-6xl font-bold text-primary/10 mb-4">{step.step}</div>
-                <step.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
+                <div className="text-7xl font-bold text-primary/10 mb-4 group-hover:text-primary/20 transition-colors">{step.step}</div>
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-all duration-300">
+                  <step.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                <p className="text-muted-foreground">{step.description}</p>
                 {index < processSteps.length - 1 && (
-                  <ArrowRight className="hidden lg:block absolute top-1/2 -right-4 w-8 h-8 text-muted-foreground/30" />
+                  <ArrowRight className="hidden lg:block absolute top-1/2 -right-4 w-8 h-8 text-muted-foreground/20" />
                 )}
               </div>
             ))}
@@ -271,11 +276,12 @@ export default function Index() {
       </section>
 
       {/* Quality Materials */}
-      <section className="py-12 bg-muted">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-muted relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-xl font-semibold mb-3">Quality Materials</h3>
-            <p className="text-muted-foreground">
+            <h3 className="text-2xl font-bold mb-4">Quality Materials</h3>
+            <p className="text-muted-foreground text-lg">
               We use premium, industry-trusted materials and professional production methods. 
               We partner with leading manufacturers and wholesale suppliers to deliver consistent results.
             </p>
@@ -284,11 +290,11 @@ export default function Index() {
       </section>
 
       {/* Featured Work */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Work</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Featured Work</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               See some of our recent projects across vehicle wraps, signs, and graphics.
             </p>
           </div>
@@ -296,22 +302,22 @@ export default function Index() {
             {featuredWork.map((project, index) => (
               <div
                 key={index}
-                className="aspect-square rounded-lg overflow-hidden group cursor-pointer relative"
+                className="aspect-square rounded-xl overflow-hidden group cursor-pointer relative shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <span className="text-xs text-primary-foreground/80 mb-1">{project.category}</span>
-                  <span className="text-sm font-semibold text-primary-foreground">{project.title}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <span className="text-xs text-primary font-medium mb-1">{project.category}</span>
+                  <span className="text-sm font-bold text-background">{project.title}</span>
                 </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Button asChild variant="outline" size="lg">
+          <div className="text-center mt-12">
+            <Button asChild variant="outline" size="lg" className="font-semibold border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all">
               <Link to="/gallery">
                 View Full Gallery
                 <ArrowRight className="ml-2 w-4 h-4" />

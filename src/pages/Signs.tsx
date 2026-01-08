@@ -112,16 +112,24 @@ export default function Signs() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-brand-gradient text-primary-foreground">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 md:py-28 bg-foreground text-background overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-primary mb-6">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-sm font-medium tracking-wide uppercase">Signage Solutions</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Business Signs That Make a Statement
             </h1>
-            <p className="text-lg text-primary-foreground/90 mb-8">
+            <p className="text-lg md:text-xl text-background/70 mb-8">
               Professional signage designed to build brand presence, attract customers, and stand the test of time.
             </p>
-            <Button asChild size="lg" variant="secondary" className="font-semibold">
+            <Button asChild size="lg" className="font-semibold h-14 px-8 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all">
               <Link to="/contact?type=sign">Request a Sign Quote</Link>
             </Button>
           </div>

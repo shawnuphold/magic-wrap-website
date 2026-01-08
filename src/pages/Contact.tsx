@@ -7,13 +7,21 @@ export default function Contact() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 md:py-28 bg-foreground text-background overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-primary mb-6">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-sm font-medium tracking-wide uppercase">Get Started</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Get Your Free Quote
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg md:text-xl text-background/70">
               Tell us about your project and we'll get back to you with a custom quote. 
               The more details you provide, the faster we can help.
             </p>
