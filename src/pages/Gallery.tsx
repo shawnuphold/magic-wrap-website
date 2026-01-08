@@ -7,9 +7,17 @@ import { ImageOff } from "lucide-react";
 
 // Import real work images
 import interiorWrap1 from "@/assets/gallery/interior-wrap-1.jpg";
+import interiorWrap2 from "@/assets/gallery/interior-wrap-2.jpg";
 import colorChangeWrap1 from "@/assets/gallery/color-change-wrap-1.jpg";
+import colorChangeWrap2 from "@/assets/gallery/color-change-wrap-2.jpg";
 import boxTruckWrap1 from "@/assets/gallery/box-truck-wrap-1.jpg";
 import windowTint1 from "@/assets/gallery/window-tint-1.jpg";
+import windowTint2 from "@/assets/gallery/window-tint-2.jpg";
+import vehicleWrap4 from "@/assets/gallery/vehicle-wrap-4.jpg";
+import vehicleWrap5 from "@/assets/gallery/vehicle-wrap-5.jpg";
+import partialWrap1 from "@/assets/gallery/partial-wrap-1.jpg";
+import partialWrap2 from "@/assets/gallery/partial-wrap-2.jpg";
+import partialWrap3 from "@/assets/gallery/partial-wrap-3.jpg";
 
 const categories = [
   "All",
@@ -31,26 +39,37 @@ interface Project {
 }
 
 const projects: Project[] = [
-  // Real work
+  // Real work - Vehicle Wraps
   { id: 1, title: "AMG Carbon Fiber Interior Wrap", category: "Vehicle Wraps", tags: ["Interior", "Carbon Fiber", "Luxury"], image: interiorWrap1 },
-  { id: 2, title: "Color-Shift Truck Wrap", category: "Vehicle Wraps", tags: ["Full Wrap", "Color Change", "Iridescent"], image: colorChangeWrap1 },
-  { id: 3, title: "Wayside Furniture Box Truck", category: "Fleet Branding", tags: ["Box Truck", "Commercial", "Full Wrap"], image: boxTruckWrap1 },
-  { id: 4, title: "Navigator Window Tint", category: "Window Graphics", tags: ["Window Tint", "SUV", "Premium"], image: windowTint1 },
+  { id: 2, title: "AMG Carbon Console Wrap", category: "Vehicle Wraps", tags: ["Interior", "Carbon Fiber", "Mercedes"], image: interiorWrap2 },
+  { id: 3, title: "Color-Shift Truck Wrap", category: "Vehicle Wraps", tags: ["Full Wrap", "Color Change", "Iridescent"], image: colorChangeWrap1 },
+  { id: 4, title: "Cybertruck Color Change", category: "Vehicle Wraps", tags: ["Full Wrap", "Color Change", "Tesla"], image: colorChangeWrap2 },
+  { id: 5, title: "MagicShine Auto Spa Truck", category: "Vehicle Wraps", tags: ["Commercial", "Full Wrap", "Truck"], image: vehicleWrap4 },
+  { id: 6, title: "MagicShine Mobile Detailing Van", category: "Vehicle Wraps", tags: ["Commercial", "Full Wrap", "Van"], image: vehicleWrap5 },
+  { id: 7, title: "Carbon Fiber Gas Cap Accent", category: "Vehicle Wraps", tags: ["Partial Wrap", "Carbon Fiber", "Accent"], image: partialWrap1 },
+  { id: 8, title: "Carbon Fiber Hood Scoop", category: "Vehicle Wraps", tags: ["Partial Wrap", "Carbon Fiber", "Truck"], image: partialWrap2 },
+  { id: 9, title: "Red Hood Scoop Accent", category: "Vehicle Wraps", tags: ["Partial Wrap", "Color Accent", "Truck"], image: partialWrap3 },
+  
+  // Real work - Fleet
+  { id: 10, title: "Wayside Furniture Box Truck", category: "Fleet Branding", tags: ["Box Truck", "Commercial", "Full Wrap"], image: boxTruckWrap1 },
+  
+  // Real work - Window Graphics
+  { id: 11, title: "Navigator Window Tint", category: "Window Graphics", tags: ["Window Tint", "SUV", "Premium"], image: windowTint1 },
+  { id: 12, title: "Carbon Fiber Pillar Accents", category: "Window Graphics", tags: ["Window Tint", "Carbon Fiber", "SUV"], image: windowTint2 },
   
   // Coming soon placeholders
-  { id: 5, title: "Coming Soon", category: "Fleet Branding", tags: ["Fleet"], comingSoon: true },
-  { id: 6, title: "Coming Soon", category: "Fleet Branding", tags: ["Fleet"], comingSoon: true },
-  { id: 7, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
-  { id: 8, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
-  { id: 9, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
-  { id: 10, title: "Coming Soon", category: "Window Graphics", tags: ["Window"], comingSoon: true },
-  { id: 11, title: "Coming Soon", category: "Window Graphics", tags: ["Window"], comingSoon: true },
-  { id: 12, title: "Coming Soon", category: "Stickers/Decals", tags: ["Stickers"], comingSoon: true },
-  { id: 13, title: "Coming Soon", category: "Stickers/Decals", tags: ["Stickers"], comingSoon: true },
-  { id: 14, title: "Coming Soon", category: "Stickers/Decals", tags: ["Decals"], comingSoon: true },
-  { id: 15, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
-  { id: 16, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
-  { id: 17, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
+  { id: 13, title: "Coming Soon", category: "Fleet Branding", tags: ["Fleet"], comingSoon: true },
+  { id: 14, title: "Coming Soon", category: "Fleet Branding", tags: ["Fleet"], comingSoon: true },
+  { id: 15, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
+  { id: 16, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
+  { id: 17, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
+  { id: 18, title: "Coming Soon", category: "Window Graphics", tags: ["Window"], comingSoon: true },
+  { id: 19, title: "Coming Soon", category: "Stickers/Decals", tags: ["Stickers"], comingSoon: true },
+  { id: 20, title: "Coming Soon", category: "Stickers/Decals", tags: ["Stickers"], comingSoon: true },
+  { id: 21, title: "Coming Soon", category: "Stickers/Decals", tags: ["Decals"], comingSoon: true },
+  { id: 22, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
+  { id: 23, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
+  { id: 24, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
 ];
 
 export default function Gallery() {
