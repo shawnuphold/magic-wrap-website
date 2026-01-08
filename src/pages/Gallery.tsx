@@ -23,6 +23,8 @@ import wallWrapGym from "@/assets/gallery/wall-wrap-gym.jpg";
 import wallWrapOffice from "@/assets/gallery/wall-wrap-office.jpg";
 import windowGraphicsGym from "@/assets/gallery/window-graphics-gym.jpg";
 import windowGraphicsGameStore from "@/assets/gallery/window-graphics-game-store.jpg";
+import stickersBusiness from "@/assets/gallery/stickers-business.jpg";
+import stickersCustom from "@/assets/gallery/stickers-custom.jpg";
 
 const categories = [
   "All",
@@ -70,8 +72,8 @@ const projects: Project[] = [
   { id: 17, title: "Corporate Skyline Wrap", category: "Wall Wraps", tags: ["Interior", "Office", "Custom"], image: wallWrapOffice },
   { id: 18, title: "Gym Storefront Graphics", category: "Window Graphics", tags: ["Storefront", "Fitness", "Full Coverage"], image: windowGraphicsGym },
   { id: 19, title: "Game Store Window Display", category: "Window Graphics", tags: ["Storefront", "Retail", "Custom"], image: windowGraphicsGameStore },
-  { id: 20, title: "Coming Soon", category: "Stickers/Decals", tags: ["Stickers"], comingSoon: true },
-  { id: 21, title: "Coming Soon", category: "Stickers/Decals", tags: ["Decals"], comingSoon: true },
+  { id: 20, title: "Business Logo Stickers", category: "Stickers/Decals", tags: ["Custom", "Die-Cut", "Branding"], image: stickersBusiness },
+  { id: 21, title: "Custom Die-Cut Decals", category: "Stickers/Decals", tags: ["Custom", "Die-Cut", "Vinyl"], image: stickersCustom },
   { id: 22, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
   { id: 23, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
   { id: 24, title: "Coming Soon", category: "Signs", tags: ["Signs"], comingSoon: true },
