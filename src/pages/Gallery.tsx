@@ -18,6 +18,9 @@ import vehicleWrap5 from "@/assets/gallery/vehicle-wrap-5.jpg";
 import partialWrap1 from "@/assets/gallery/partial-wrap-1.jpg";
 import partialWrap2 from "@/assets/gallery/partial-wrap-2.jpg";
 import partialWrap3 from "@/assets/gallery/partial-wrap-3.jpg";
+import wallWrapLawOffice from "@/assets/gallery/wall-wrap-law-office.jpg";
+import wallWrapGym from "@/assets/gallery/wall-wrap-gym.jpg";
+import wallWrapOffice from "@/assets/gallery/wall-wrap-office.jpg";
 
 const categories = [
   "All",
@@ -60,9 +63,9 @@ const projects: Project[] = [
   // Coming soon placeholders
   { id: 13, title: "Coming Soon", category: "Fleet Branding", tags: ["Fleet"], comingSoon: true },
   { id: 14, title: "Coming Soon", category: "Fleet Branding", tags: ["Fleet"], comingSoon: true },
-  { id: 15, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
-  { id: 16, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
-  { id: 17, title: "Coming Soon", category: "Wall Wraps", tags: ["Wall"], comingSoon: true },
+  { id: 15, title: "Law Office Wall Mural", category: "Wall Wraps", tags: ["Interior", "Professional", "Custom"], image: wallWrapLawOffice },
+  { id: 16, title: "Gym Motivational Mural", category: "Wall Wraps", tags: ["Interior", "Fitness", "Large Format"], image: wallWrapGym },
+  { id: 17, title: "Corporate Skyline Wrap", category: "Wall Wraps", tags: ["Interior", "Office", "Custom"], image: wallWrapOffice },
   { id: 18, title: "Coming Soon", category: "Window Graphics", tags: ["Window"], comingSoon: true },
   { id: 19, title: "Coming Soon", category: "Stickers/Decals", tags: ["Stickers"], comingSoon: true },
   { id: 20, title: "Coming Soon", category: "Stickers/Decals", tags: ["Stickers"], comingSoon: true },
