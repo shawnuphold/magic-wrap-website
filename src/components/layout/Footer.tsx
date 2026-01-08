@@ -90,8 +90,8 @@ export function Footer() {
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
                 <span className="text-background/70">
-                  123 Main Street<br />
-                  Your City, State 12345
+                  1063 Greenbag Rd Ste E<br />
+                  Morgantown, WV 26508
                 </span>
               </li>
               <li className="flex items-center gap-3 text-sm">
