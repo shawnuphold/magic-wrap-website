@@ -46,12 +46,15 @@ const defaultFAQs: FAQItem[] = [
 export function FAQ({ title = "Frequently Asked Questions", subtitle, items }: FAQProps) {
   const faqItems = items || defaultFAQs;
   return (
-    <section className="py-16 md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+    <section className="py-20 md:py-28 relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{title}</h2>
           {subtitle && (
-            <p className="text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{subtitle}</p>
           )}
         </div>
 
@@ -61,12 +64,12 @@ export function FAQ({ title = "Frequently Asked Questions", subtitle, items }: F
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-muted rounded-lg px-6 border-0"
+                className="bg-card rounded-xl px-6 border border-border/50 shadow-sm hover:shadow-md transition-shadow"
               >
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <AccordionTrigger className="text-left font-bold hover:no-underline py-6 text-lg">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
