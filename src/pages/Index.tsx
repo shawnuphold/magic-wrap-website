@@ -33,7 +33,7 @@ import wallWrap1 from "@/assets/gallery/wall-wrap-1.jpg";
 import wallWrap2 from "@/assets/gallery/wall-wrap-2.jpg";
 import sign1 from "@/assets/gallery/sign-1.jpg";
 import sign2 from "@/assets/gallery/sign-2.jpg";
-import sign3 from "@/assets/gallery/sign-3.jpg";
+import storefrontSign from "@/assets/gallery/storefront-sign.jpg";
 import foodTruckWrap from "@/assets/gallery/food-truck-wrap.jpg";
 import windowGraphics1 from "@/assets/gallery/window-graphics-1.jpg";
 
@@ -141,7 +141,7 @@ export default function Index() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary overflow-hidden">
               <div 
                 className="h-48 bg-cover bg-center"
-                style={{ backgroundImage: `url(${sign3})` }}
+                style={{ backgroundImage: `url(${storefrontSign})` }}
               />
               <CardContent className="p-8">
                 <Signpost className="w-12 h-12 text-primary mb-4" />
