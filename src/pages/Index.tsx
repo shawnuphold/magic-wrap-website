@@ -124,7 +124,7 @@ export default function Index() {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="font-semibold text-base px-8 h-14 border-background/30 text-background hover:bg-background/10 hover:text-background backdrop-blur-sm">
+              <Button asChild variant="outline" size="lg" className="font-semibold text-base px-8 h-14 border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm transition-all">
                 <Link to="/gallery">View Our Work</Link>
               </Button>
             </div>
