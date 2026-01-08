@@ -26,7 +26,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import vehicleWrap1 from "@/assets/gallery/vehicle-wrap-1.jpg";
 import vehicleWrap2 from "@/assets/gallery/vehicle-wrap-2.jpg";
 import vehicleWrap3 from "@/assets/gallery/vehicle-wrap-3.jpg";
-import vehicleWrap5 from "@/assets/gallery/vehicle-wrap-5.jpg";
+import vehicleWrapHero from "@/assets/gallery/vehicle-wrap-hero.jpg";
 import fleetWrap1 from "@/assets/gallery/fleet-wrap-1.jpg";
 import fleetWrap2 from "@/assets/gallery/fleet-wrap-2.jpg";
 import wallWrap1 from "@/assets/gallery/wall-wrap-1.jpg";
@@ -125,7 +125,7 @@ export default function Index() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary overflow-hidden">
               <div 
                 className="h-48 bg-cover bg-center"
-                style={{ backgroundImage: `url(${vehicleWrap5})` }}
+                style={{ backgroundImage: `url(${vehicleWrapHero})` }}
               />
               <CardContent className="p-8">
                 <Car className="w-12 h-12 text-primary mb-4" />
