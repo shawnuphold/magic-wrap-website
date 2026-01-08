@@ -92,7 +92,7 @@ export default function Index() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/30" />
         </div>
         <div className="container mx-auto px-4 py-16 md:py-24 relative">
           <div className="max-w-3xl">
