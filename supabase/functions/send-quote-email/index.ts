@@ -48,13 +48,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Get SMTP config from environment
     const smtpHost = Deno.env.get("SMTP_HOST");
-    const smtpPortRaw = Deno.env.get("SMTP_PORT") ?? "587";
-    const smtpPort = Number(smtpPortRaw);
-    const smtpSecureEnv = (Deno.env.get("SMTP_SECURE") ?? "").toLowerCase();
-    // Force implicit TLS for port 465, otherwise rely on SMTP_SECURE
-    const smtpSecure =
-      smtpPort === 465 || smtpSecureEnv === "true" || smtpSecureEnv === "1" || smtpSecureEnv === "yes";
-
+    const smtpPort = Number(Deno.env.get("SMTP_PORT") || "587");
+    // SMTP_SECURE: "true" = implicit TLS (port 465), "false" = STARTTLS (port 587)
+    const smtpSecure = Deno.env.get("SMTP_SECURE") === "true";
     const smtpUser = Deno.env.get("SMTP_USER");
     const smtpPass = Deno.env.get("SMTP_PASS");
     const smtpFrom = Deno.env.get("SMTP_FROM");
@@ -67,6 +63,8 @@ const handler = async (req: Request): Promise<Response> => {
         { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
+
+    console.log(`SMTP Config: host=${smtpHost}, port=${smtpPort}, secure=${smtpSecure}`);
 
     const timestamp = new Date().toLocaleString("en-US", {
       timeZone: "America/New_York",
@@ -202,7 +200,8 @@ ${data.approxSize ? `Approximate Size: ${data.approxSize}` : ""}
 Submitted: ${timestamp}
     `;
 
-    // Create SMTP client
+    // Create SMTP client - for port 587, use tls: false initially (STARTTLS will upgrade)
+    // For port 465, use tls: true (implicit TLS)
     const client = new SMTPClient({
       connection: {
         hostname: smtpHost,
