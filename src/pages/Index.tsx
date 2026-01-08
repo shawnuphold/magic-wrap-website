@@ -21,6 +21,20 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+// Import images
+import heroBg from "@/assets/hero-bg.jpg";
+import vehicleWrap1 from "@/assets/gallery/vehicle-wrap-1.jpg";
+import vehicleWrap2 from "@/assets/gallery/vehicle-wrap-2.jpg";
+import vehicleWrap3 from "@/assets/gallery/vehicle-wrap-3.jpg";
+import fleetWrap1 from "@/assets/gallery/fleet-wrap-1.jpg";
+import fleetWrap2 from "@/assets/gallery/fleet-wrap-2.jpg";
+import wallWrap1 from "@/assets/gallery/wall-wrap-1.jpg";
+import wallWrap2 from "@/assets/gallery/wall-wrap-2.jpg";
+import sign1 from "@/assets/gallery/sign-1.jpg";
+import sign2 from "@/assets/gallery/sign-2.jpg";
+import foodTruckWrap from "@/assets/gallery/food-truck-wrap.jpg";
+import windowGraphics1 from "@/assets/gallery/window-graphics-1.jpg";
+
 const services = [
   { icon: Car, name: "Vehicle Wraps", description: "Full & partial wraps for any vehicle" },
   { icon: Truck, name: "Fleet Graphics", description: "Consistent branding across your fleet" },
@@ -52,14 +66,34 @@ const processSteps = [
   { icon: CheckCircle2, step: "04", title: "Install", description: "Professional installation by certified technicians" },
 ];
 
+const featuredWork = [
+  { image: vehicleWrap1, title: "Tesla Model 3 Full Wrap", category: "Vehicle Wraps" },
+  { image: fleetWrap1, title: "Commercial Fleet Branding", category: "Fleet Graphics" },
+  { image: sign1, title: "Storefront Channel Letters", category: "Signs" },
+  { image: wallWrap1, title: "Corporate Office Mural", category: "Wall Wraps" },
+  { image: vehicleWrap2, title: "BMW M4 Color Change", category: "Vehicle Wraps" },
+  { image: foodTruckWrap, title: "Food Truck Full Wrap", category: "Vehicle Wraps" },
+  { image: sign2, title: "Lobby Acrylic Sign", category: "Signs" },
+  { image: windowGraphics1, title: "Cafe Window Graphics", category: "Window Graphics" },
+  { image: vehicleWrap3, title: "Service Truck Wrap", category: "Vehicle Wraps" },
+  { image: fleetWrap2, title: "Delivery Fleet Program", category: "Fleet Graphics" },
+  { image: wallWrap2, title: "Gym Wall Mural", category: "Wall Wraps" },
+  { image: vehicleWrap1, title: "Electric Vehicle Wrap", category: "Vehicle Wraps" },
+];
+
 export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-background via-background to-muted">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
+      <section className="relative min-h-[80vh] flex items-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        </div>
         <div className="container mx-auto px-4 py-16 md:py-24 relative">
-          <div className="max-w-4xl">
+          <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
               Wraps, Graphics & Signs<br />
               <span className="text-primary">That Get You Noticed</span>
@@ -74,7 +108,7 @@ export default function Index() {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="font-semibold text-base px-8">
+              <Button asChild variant="outline" size="lg" className="font-semibold text-base px-8 bg-background/50 backdrop-blur-sm">
                 <Link to="/gallery">View Our Work</Link>
               </Button>
             </div>
@@ -86,7 +120,11 @@ export default function Index() {
       <section className="py-16 md:py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary overflow-hidden">
+              <div 
+                className="h-48 bg-cover bg-center"
+                style={{ backgroundImage: `url(${vehicleWrap2})` }}
+              />
               <CardContent className="p-8">
                 <Car className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-3">Vehicle Wraps & Fleet Graphics</h3>
@@ -98,7 +136,11 @@ export default function Index() {
                 </Button>
               </CardContent>
             </Card>
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary overflow-hidden">
+              <div 
+                className="h-48 bg-cover bg-center"
+                style={{ backgroundImage: `url(${sign1})` }}
+              />
               <CardContent className="p-8">
                 <Signpost className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-3">Business Signs & Storefront Graphics</h3>
@@ -209,7 +251,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Featured Work Placeholder */}
+      {/* Featured Work */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -219,13 +261,19 @@ export default function Index() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[...Array(12)].map((_, index) => (
+            {featuredWork.map((project, index) => (
               <div
                 key={index}
-                className="aspect-square bg-muted rounded-lg overflow-hidden group cursor-pointer"
+                className="aspect-square rounded-lg overflow-hidden group cursor-pointer relative"
               >
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 transition-all">
-                  <span className="text-muted-foreground text-sm">Project {index + 1}</span>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <span className="text-xs text-primary-foreground/80 mb-1">{project.category}</span>
+                  <span className="text-sm font-semibold text-primary-foreground">{project.title}</span>
                 </div>
               </div>
             ))}
