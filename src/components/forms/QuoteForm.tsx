@@ -10,8 +10,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Upload, CheckCircle, Loader2 } from "lucide-react";
+import { CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const projectTypes = [
   "Vehicle Wrap",
@@ -23,17 +24,12 @@ const projectTypes = [
   "Other",
 ];
 
-// Zapier webhook URL - replace with your actual webhook URL
-const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK_ID";
-
 export function QuoteForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [projectType, setProjectType] = useState("");
-  const [files, setFiles] = useState<FileList | null>(null);
   const { toast } = useToast();
 
-  // Form data state
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -42,7 +38,6 @@ export function QuoteForm() {
     deadline: "",
     notes: "",
     contactMethod: "email",
-    // Sign-specific fields
     installAddress: "",
     illuminated: "",
     mountType: "",
@@ -60,36 +55,62 @@ export function QuoteForm() {
     }
   };
 
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      business: "",
+      deadline: "",
+      notes: "",
+      contactMethod: "email",
+      installAddress: "",
+      illuminated: "",
+      mountType: "",
+      signSize: "",
+    });
+    setProjectType("");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     const payload = {
-      ...formData,
+      name: formData.name.trim(),
+      phone: formData.phone.trim(),
+      email: formData.email.trim(),
+      business: formData.business.trim(),
       projectType,
-      fileCount: files?.length || 0,
-      fileNames: files ? Array.from(files).map((f) => f.name).join(", ") : "",
-      submittedAt: new Date().toISOString(),
-      source: window.location.origin,
+      deadline: formData.deadline,
+      notes: formData.notes.trim(),
+      preferredContact: formData.contactMethod,
+      signAddress: formData.installAddress.trim(),
+      illuminated: formData.illuminated,
+      mountType: formData.mountType,
+      approxSize: formData.signSize.trim(),
     };
 
     try {
-      await fetch(ZAPIER_WEBHOOK_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors", // Required for Zapier webhooks
-        body: JSON.stringify(payload),
+      const { data, error } = await supabase.functions.invoke("send-quote-email", {
+        body: payload,
       });
 
-      // With no-cors, we can't read the response, but the request was sent
+      if (error) {
+        throw new Error(error.message || "Failed to send request");
+      }
+
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+
       setIsSubmitted(true);
-    } catch (error) {
+      resetForm();
+    } catch (error: any) {
       console.error("Error submitting form:", error);
       toast({
         title: "Submission Error",
-        description: "There was a problem sending your request. Please try calling us instead.",
+        description: error.message || "There was a problem sending your request. Please try calling us instead.",
         variant: "destructive",
       });
     } finally {
@@ -120,6 +141,7 @@ export function QuoteForm() {
             id="name"
             placeholder="Your name"
             required
+            maxLength={100}
             value={formData.name}
             onChange={handleInputChange}
           />
@@ -131,6 +153,7 @@ export function QuoteForm() {
             type="tel"
             placeholder="(555) 123-4567"
             required
+            maxLength={20}
             value={formData.phone}
             onChange={handleInputChange}
           />
@@ -145,6 +168,7 @@ export function QuoteForm() {
             type="email"
             placeholder="you@example.com"
             required
+            maxLength={255}
             value={formData.email}
             onChange={handleInputChange}
           />
@@ -154,6 +178,7 @@ export function QuoteForm() {
           <Input
             id="business"
             placeholder="Your business name"
+            maxLength={100}
             value={formData.business}
             onChange={handleInputChange}
           />
@@ -176,7 +201,6 @@ export function QuoteForm() {
         </Select>
       </div>
 
-      {/* Conditional fields for Signs */}
       {isSignProject && (
         <div className="space-y-6 p-6 bg-muted rounded-lg animate-fade-in">
           <h4 className="font-semibold text-foreground">Sign Details</h4>
@@ -186,6 +210,7 @@ export function QuoteForm() {
             <Input
               id="installAddress"
               placeholder="Where will the sign be installed?"
+              maxLength={255}
               value={formData.installAddress}
               onChange={handleInputChange}
             />
@@ -236,6 +261,7 @@ export function QuoteForm() {
             <Input
               id="signSize"
               placeholder="e.g., 4ft x 8ft, or 'not sure'"
+              maxLength={50}
               value={formData.signSize}
               onChange={handleInputChange}
             />
@@ -259,34 +285,10 @@ export function QuoteForm() {
           id="notes"
           placeholder="Tell us about your project, goals, and any specific requirements..."
           rows={4}
+          maxLength={2000}
           value={formData.notes}
           onChange={handleInputChange}
         />
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="files">Upload Files (optional)</Label>
-        <div className="border-2 border-dashed rounded-lg p-6 text-center hover:border-primary transition-colors cursor-pointer">
-          <input
-            id="files"
-            type="file"
-            multiple
-            accept="image/*,.pdf,.ai,.psd,.eps"
-            className="hidden"
-            onChange={(e) => setFiles(e.target.files)}
-          />
-          <label htmlFor="files" className="cursor-pointer">
-            <Upload className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">
-              {files && files.length > 0
-                ? `${files.length} file(s) selected`
-                : "Upload logos, inspiration images, photos, or measurements"}
-            </p>
-            <p className="text-xs text-muted-foreground/70 mt-1">
-              Accepts: Images, PDF, AI, PSD, EPS
-            </p>
-          </label>
-        </div>
       </div>
 
       <div className="space-y-2">
