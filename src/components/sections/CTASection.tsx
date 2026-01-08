@@ -18,19 +18,26 @@ export function CTASection({
   variant = "gradient",
 }: CTASectionProps) {
   return (
-    <section className={`py-16 md:py-24 ${variant === "gradient" ? "bg-brand-gradient text-primary-foreground" : "bg-muted"}`}>
-      <div className="container mx-auto px-4 text-center">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${variant === "gradient" ? "" : ""}`}>
+    <section className={`relative py-20 md:py-28 overflow-hidden ${variant === "gradient" ? "bg-foreground" : "bg-muted"}`}>
+      {/* Background Elements */}
+      {variant === "gradient" && (
+        <>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        </>
+      )}
+      
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${variant === "gradient" ? "text-background" : ""}`}>
           {title}
         </h2>
-        <p className={`text-lg mb-8 max-w-2xl mx-auto ${variant === "gradient" ? "text-primary-foreground" : "text-muted-foreground"}`}>
+        <p className={`text-lg md:text-xl mb-10 max-w-2xl mx-auto ${variant === "gradient" ? "text-background/70" : "text-muted-foreground"}`}>
           {subtitle}
         </p>
         <Button
           asChild
           size="lg"
-          variant={variant === "gradient" ? "secondary" : "default"}
-          className="font-semibold text-base px-8"
+          className={`font-semibold text-base px-10 h-14 ${variant === "gradient" ? "shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40" : ""}`}
         >
           <Link to={buttonLink}>
             {buttonText}
