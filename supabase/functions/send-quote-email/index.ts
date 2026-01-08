@@ -48,8 +48,13 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Get SMTP config from environment
     const smtpHost = Deno.env.get("SMTP_HOST");
-    const smtpPort = parseInt(Deno.env.get("SMTP_PORT") || "587");
-    const smtpSecure = Deno.env.get("SMTP_SECURE") === "true";
+    const smtpPortRaw = Deno.env.get("SMTP_PORT") ?? "587";
+    const smtpPort = Number(smtpPortRaw);
+    const smtpSecureEnv = (Deno.env.get("SMTP_SECURE") ?? "").toLowerCase();
+    // Force implicit TLS for port 465, otherwise rely on SMTP_SECURE
+    const smtpSecure =
+      smtpPort === 465 || smtpSecureEnv === "true" || smtpSecureEnv === "1" || smtpSecureEnv === "yes";
+
     const smtpUser = Deno.env.get("SMTP_USER");
     const smtpPass = Deno.env.get("SMTP_PASS");
     const smtpFrom = Deno.env.get("SMTP_FROM");
@@ -210,7 +215,7 @@ Submitted: ${timestamp}
       },
     });
 
-    console.log(`Connecting to SMTP server ${smtpHost}:${smtpPort}`);
+    console.log(`Connecting to SMTP server ${smtpHost}:${smtpPort} (tls=${smtpSecure})`);
 
     // Send email
     await client.send({
