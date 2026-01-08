@@ -3,6 +3,8 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Users, Award, Clock, Wrench } from "lucide-react";
 
+import teamPhoto from "@/assets/team-photo.jpg";
+
 const values = [
   {
     icon: Award,
@@ -76,8 +78,12 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="bg-muted rounded-lg aspect-[4/3] flex items-center justify-center">
-              <span className="text-muted-foreground">Team Photo</span>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={teamPhoto} 
+                alt="Magic Shine Wraps Team" 
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>

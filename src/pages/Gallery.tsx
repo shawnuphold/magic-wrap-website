@@ -4,6 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/sections/CTASection";
 
+// Import images
+import vehicleWrap1 from "@/assets/gallery/vehicle-wrap-1.jpg";
+import vehicleWrap2 from "@/assets/gallery/vehicle-wrap-2.jpg";
+import vehicleWrap3 from "@/assets/gallery/vehicle-wrap-3.jpg";
+import fleetWrap1 from "@/assets/gallery/fleet-wrap-1.jpg";
+import fleetWrap2 from "@/assets/gallery/fleet-wrap-2.jpg";
+import wallWrap1 from "@/assets/gallery/wall-wrap-1.jpg";
+import wallWrap2 from "@/assets/gallery/wall-wrap-2.jpg";
+import sign1 from "@/assets/gallery/sign-1.jpg";
+import sign2 from "@/assets/gallery/sign-2.jpg";
+import foodTruckWrap from "@/assets/gallery/food-truck-wrap.jpg";
+import windowGraphics1 from "@/assets/gallery/window-graphics-1.jpg";
+
 const categories = [
   "All",
   "Vehicle Wraps",
@@ -14,24 +27,23 @@ const categories = [
   "Signs",
 ];
 
-// Placeholder projects - in a real app, these would come from a CMS or database
 const projects = [
-  { id: 1, title: "Tesla Model 3 Full Wrap", category: "Vehicle Wraps", tags: ["Full Wrap", "Color Change", "Matte"] },
-  { id: 2, title: "ABC Plumbing Fleet", category: "Fleet Branding", tags: ["Fleet", "Commercial", "Vinyl"] },
-  { id: 3, title: "Downtown Cafe Mural", category: "Wall Wraps", tags: ["Interior", "Mural", "Branding"] },
-  { id: 4, title: "Retail Storefront", category: "Window Graphics", tags: ["Storefront", "Frosted", "Hours"] },
-  { id: 5, title: "Product Labels Batch", category: "Stickers/Decals", tags: ["Die-Cut", "Labels", "Bulk"] },
-  { id: 6, title: "Restaurant Channel Letters", category: "Signs", tags: ["Channel Letters", "Front-Lit", "Outdoor"] },
-  { id: 7, title: "Ford F-150 Partial Wrap", category: "Vehicle Wraps", tags: ["Partial Wrap", "Commercial"] },
-  { id: 8, title: "Tech Startup Office Branding", category: "Wall Wraps", tags: ["Office", "Interior", "Logo Wall"] },
-  { id: 9, title: "Delivery Van Fleet - 20 Units", category: "Fleet Branding", tags: ["Fleet", "Delivery", "National"] },
-  { id: 10, title: "Dental Office Monument Sign", category: "Signs", tags: ["Monument", "Illuminated", "ACM"] },
-  { id: 11, title: "Coffee Shop Window Display", category: "Window Graphics", tags: ["Perforated", "Promotional"] },
-  { id: 12, title: "BMW M4 Color Change", category: "Vehicle Wraps", tags: ["Full Wrap", "Satin", "Luxury"] },
-  { id: 13, title: "Law Firm Lobby Sign", category: "Signs", tags: ["Acrylic", "Standoffs", "Interior"] },
-  { id: 14, title: "Food Truck Full Wrap", category: "Vehicle Wraps", tags: ["Full Wrap", "Food Truck", "Custom"] },
-  { id: 15, title: "Gym Motivational Wall", category: "Wall Wraps", tags: ["Gym", "Large Format", "Typography"] },
-  { id: 16, title: "Real Estate Yard Signs - 100pc", category: "Signs", tags: ["Yard Signs", "Bulk", "Real Estate"] },
+  { id: 1, title: "Tesla Model 3 Full Wrap", category: "Vehicle Wraps", tags: ["Full Wrap", "Color Change", "Matte"], image: vehicleWrap1 },
+  { id: 2, title: "ABC Plumbing Fleet", category: "Fleet Branding", tags: ["Fleet", "Commercial", "Vinyl"], image: fleetWrap1 },
+  { id: 3, title: "Downtown Cafe Mural", category: "Wall Wraps", tags: ["Interior", "Mural", "Branding"], image: wallWrap1 },
+  { id: 4, title: "Retail Storefront", category: "Window Graphics", tags: ["Storefront", "Frosted", "Hours"], image: windowGraphics1 },
+  { id: 5, title: "Restaurant Channel Letters", category: "Signs", tags: ["Channel Letters", "Front-Lit", "Outdoor"], image: sign1 },
+  { id: 6, title: "Ford F-150 Partial Wrap", category: "Vehicle Wraps", tags: ["Partial Wrap", "Commercial"], image: vehicleWrap3 },
+  { id: 7, title: "Tech Startup Office Branding", category: "Wall Wraps", tags: ["Office", "Interior", "Logo Wall"], image: wallWrap2 },
+  { id: 8, title: "Delivery Van Fleet - 20 Units", category: "Fleet Branding", tags: ["Fleet", "Delivery", "National"], image: fleetWrap2 },
+  { id: 9, title: "Dental Office Lobby Sign", category: "Signs", tags: ["Acrylic", "Standoffs", "Interior"], image: sign2 },
+  { id: 10, title: "BMW M4 Color Change", category: "Vehicle Wraps", tags: ["Full Wrap", "Satin", "Luxury"], image: vehicleWrap2 },
+  { id: 11, title: "Food Truck Full Wrap", category: "Vehicle Wraps", tags: ["Full Wrap", "Food Truck", "Custom"], image: foodTruckWrap },
+  { id: 12, title: "Corporate Wall Graphics", category: "Wall Wraps", tags: ["Corporate", "Large Format"], image: wallWrap1 },
+  { id: 13, title: "Storefront Sign Installation", category: "Signs", tags: ["Channel Letters", "Illuminated"], image: sign1 },
+  { id: 14, title: "Fleet Van Graphics", category: "Fleet Branding", tags: ["Fleet", "Graphics"], image: fleetWrap1 },
+  { id: 15, title: "Luxury Car Wrap", category: "Vehicle Wraps", tags: ["Luxury", "Color Change"], image: vehicleWrap2 },
+  { id: 16, title: "Office Lobby Sign", category: "Signs", tags: ["Interior", "Modern"], image: sign2 },
 ];
 
 export default function Gallery() {
@@ -90,8 +102,11 @@ export default function Gallery() {
                   key={project.id}
                   className="group relative bg-muted rounded-lg overflow-hidden aspect-[4/3] cursor-pointer"
                 >
-                  {/* Placeholder image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-300" />
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                   
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/80 transition-all duration-300 flex flex-col justify-end p-4">
