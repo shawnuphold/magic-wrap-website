@@ -60,7 +60,7 @@ const projects: Project[] = [
   
   // Real work - Window Graphics
   { id: 11, title: "Navigator Roof & Mirror Wrap", category: "Vehicle Wraps", tags: ["Partial Wrap", "SUV", "Accents"], image: windowTint1 },
-  { id: 12, title: "Carbon Fiber Pillar Accents", category: "Window Graphics", tags: ["Window Tint", "Carbon Fiber", "SUV"], image: windowTint2 },
+  { id: 12, title: "Carbon Fiber Pillar Accents", category: "Vehicle Wraps", tags: ["Partial Wrap", "Carbon Fiber", "SUV"], image: windowTint2 },
   
   // Coming soon placeholders
   { id: 13, title: "Coming Soon", category: "Fleet Branding", tags: ["Fleet"], comingSoon: true },
