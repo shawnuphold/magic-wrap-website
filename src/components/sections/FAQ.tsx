@@ -58,7 +58,6 @@ export function FAQ({ title = "Frequently Asked Questions", subtitle, items }: F
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((faq, index) => (
-            {items.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
